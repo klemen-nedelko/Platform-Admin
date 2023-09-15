@@ -10,8 +10,8 @@ const showModal = () => {
     overlay.classList.remove('hidden');
 }
 const hideModal = () => {
-    modal.classList.toggle('hidden');
-    overlay.classList.toggle('hidden');
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
 }
 
 btnOpenModal.addEventListener('click', showModal);
