@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform Admin</title>
+</head>
+<link rel="stylesheet" href="./style/reset.css">
+<link rel="stylesheet" href="./style/theme.css">
+<link rel="stylesheet" href="./style/style.css">
+<body>
+    <nav>
+        <div class="navbar padding-site">
+            <div class="navbar-logo">
+                <img src="./assets/img/Platform-admin-logo.svg" alt="logo" class="logo">
+                <p class="font-logo font-uppercase">Platform Admin</p>
+            </div>
+            <div class="navbar-filter">
+                <p class="font-filter font-uppercase">Filter:</p>
+                <ul class="filter">
+                    <li class="filter-option font-filter font-active active">All</li>
+                    <li class="filter-option font-filter">Free</li>
+                    <li class="filter-option font-filter">Paying</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Search and creation of new data -->
+    <section class="search padding-site">
+        <div class="search-input-seciton">
+            <label class="search-icon">
+                    <input type="text" placeholder="Search" class="search-input font-search"/>
+            </label>
+        </div>
+        <button class="btn btn-create font-btn btn-create-new" id="btn-create-new">Create new Account</button>
+    </section>  
+    <!-- Open modal to create new -->
+    <div class="modal hidden">
+        <button class="close-modal">&times;</button>
+        <p class="font-primary">Create new Comany</p>
+        <form class="create-new-account-form create" id="create">
+            <label class="font-primary">Company Name</label>
+            <input class="input" type="text" placeholder="John" id="companyName" name="companyName" required/>
+            <label  class="font-primary">Owner email</label>
+            <input class="input" type="email" placeholder="Email"  id="companyEmail" name="companyEmail" required/>
+            <label  class="font-primary">Select subscription</label>
+            <select class="input" id="companyPlan" name="companyPlan">
+                <option value="free">Free</option>
+                <option value="pay">Paying</option>
+            </select>
+            <button type="submit" class="btn btn-create font-btn">Create new Account</button>
+        </form>
+    </div>
+    <div class="overlay hidden"></div>
+    <!-- Table with information -->
+    <main class="padding-site">
+        <div class="table-container">
+            <table class="table font-table" id="table">
+                <thead class="table-head">
+                    <tr class="font-table">
+                        <th class="table-id">ID</th>
+                        <th class="table-company-name">Company Name</th>
+                        <th >Owner Email</th>
+                    </tr>
+                </thead>
+                <tbody class="table-body">
+                    <tr id="noData">
+                        <td colspan="5" class="no-data font-no-data " id="noData">No data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    
+    <script src="./src/main.js" type="module"></script>
+    <script src="./src/data.js" type="module"></script>
+    <script src="./src/table.js" type="module"></script>
+    <script src="./src/components/modal/modal.js" type="module"></script>
+    
+    
+</body>
+</html>

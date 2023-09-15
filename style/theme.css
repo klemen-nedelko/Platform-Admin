@@ -1,0 +1,96 @@
+:root{
+    --color-main: #259BC1;
+    --color-secondary: #f8f8f8;
+    --color-button-create: #8DC63F;
+    --color-active-filter: #3ba5c7;
+    --color-white: #FFF;
+    --color-black: #000;
+    --color-gray: #7B7D80;
+    --color-gray-table-header: #AAACAF;
+    --color-search-placeholder:#C7C9CD;
+    --color-border: #E5E5E5;
+    --color-white-opacity: rgba(255, 255, 255, 0.1);
+    --color-white-opacity-filter: rgba(255, 255, 255, 0.5);
+}
+
+/*Fonts*/
+.font-logo{
+    color: var(--color-white);
+    font-family: Arial;
+    font-size: calc(11rem / 16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(12rem / 16);
+}
+
+.font-primary{
+    color: var(--color-black);
+    font-family: Arial;
+    font-size: calc(16rem / 16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(16rem / 16); 
+}
+
+.font-secondary{
+    color: var(--color-gray);
+    font-family: Arial;
+    font-size: calc(14rem / 16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(14rem / 16);
+}
+.font-table{
+    color: var(--color-gray-table-header);
+    font-family: Arial;
+    font-size: calc(12rem / 16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(13.2rem / 16);
+}
+.font-search::placeholder{
+    color: var(--color-search-placeholder);
+    font-family: Arial;
+    font-size: calc(12rem / 16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(17rem / 16);
+    letter-spacing:calc(0.24rem / 16);
+}
+.font-filter{
+    color: var(--color-white-opacity-filter);
+    font-family: Arial;
+    font-size: calc(14rem / 16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(17rem / 16);
+}
+.font-active{
+    color: var(--color-white);
+    font-family: Arial;
+    font-size: calc(14rem / 16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(17rem / 16);
+}
+
+.font-uppercase{ 
+    text-transform: uppercase;
+}
+.font-btn{
+    color: var(--color-white);
+    font-family: Arial;
+    font-size: calc(14rem /16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(17rem /16); 
+}
+.font-no-data{
+    color: var(--color-search-placeholder);
+    font-family: Arial;
+    font-size: calc(18rem /16);
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(17rem /16); 
+
+}
