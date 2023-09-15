@@ -7,6 +7,29 @@ const filterOption = document.querySelectorAll('.filter-option');
 let form = document.forms['create'];
 let tableBody = document.querySelector('#table tbody');
 let currentFilter = 'all';
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.close-modal');
+const btnOpenModal = document.querySelector('.btn-create-new');
+
+const showModal = () => {
+    modal.classList.remove('hidden');
+    overlay.classList.remove('hidden');
+}
+const hideModal = () => {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+}
+
+btnOpenModal.addEventListener('click', showModal);
+btnCloseModal.addEventListener('click', hideModal);
+
+document.addEventListener('keydown', function (e) {
+    if (e === 'Escape' && !modal.classList.contains('hidden')) {
+        hideModal();
+    }
+})
+
 
 
 let cachedData = null
@@ -153,6 +176,7 @@ createFrom.addEventListener('submit', (event) => {
         companyEmail,
         companyPlan
     }
+    hideModal();
     addNewDataToCache(newData);
     renderTableWithUpdatedData();
     document.getElementById('companyName').value = '';
