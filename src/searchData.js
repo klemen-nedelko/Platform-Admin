@@ -4,7 +4,7 @@ import debounce from "./debounce.js";
 class SearchData {
 
     constructor(dataFetcher, tableRenderer) {
-        this.searchInput = document.querySelector('.search-input');
+        this.searchInput = document.getElementById('search-input');
         this.debounceSearchData = debounce(this.searchData.bind(this), 300);
         this.dataFetcher = dataFetcher;
         this.tableRenderer = tableRenderer;
