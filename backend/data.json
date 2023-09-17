@@ -1,0 +1,182 @@
+[
+  {
+    "id": "91805024",
+    "companyName": "Amazon.com",
+    "contactEmail": "Isabela@amazon",
+    "companyPlan": "free"
+  },
+  {
+    "id": "46241605",
+    "companyName": "JPMorgan Chase",
+    "contactEmail": "Amiri@jpmorgan",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "08409669",
+    "companyName": "Lowe's",
+    "contactEmail": "Inaya@lowes",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "59300277",
+    "companyName": "PepsiCo",
+    "contactEmail": "Jream@pepsi",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "56271031",
+    "companyName": "United Technologies",
+    "contactEmail": "Love@utc",
+    "companyPlan": "free"
+  },
+  {
+    "id": "34866559",
+    "companyName": "Disney",
+    "contactEmail": "Inaya@disney",
+    "companyPlan": "free"
+  },
+  {
+    "id": "39634121",
+    "companyName": "CVS Health",
+    "contactEmail": "Arleth@cvspharmacy",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "54663395",
+    "companyName": "General Electric",
+    "contactEmail": "Arleth@generalelectric",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "74583522",
+    "companyName": "DowDuPont",
+    "contactEmail": "Jream@dowchemical",
+    "companyPlan": "free"
+  },
+  {
+    "id": "34683440",
+    "companyName": "Albertsons Cos.",
+    "contactEmail": "Arlet@albertsons",
+    "companyPlan": "free"
+  },
+  {
+    "id": "87168351",
+    "companyName": "AmerisourceBergen",
+    "contactEmail": "Cielo@healthcare_abc",
+    "companyPlan": "free"
+  },
+  {
+    "id": "40633074",
+    "companyName": "Liberty Mutual Insurance Group",
+    "contactEmail": "Isabela@libertymutual",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "92494603",
+    "companyName": "Boeing",
+    "contactEmail": "Carla@boeing",
+    "companyPlan": "free"
+  },
+  {
+    "id": "17405249",
+    "companyName": "FedEx",
+    "contactEmail": "Wrenley@fedex",
+    "companyPlan": "free"
+  },
+  {
+    "id": "99758475",
+    "companyName": "AT&T",
+    "contactEmail": "Georgina@att",
+    "companyPlan": "free"
+  },
+  {
+    "id": "13103388",
+    "companyName": "Caterpillar",
+    "contactEmail": "Arlet@caterpillarinc",
+    "companyPlan": "free"
+  },
+  {
+    "id": "69169602",
+    "companyName": "Marathon Petroleum",
+    "contactEmail": "Adalee@marathonpetroco",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "34691040",
+    "companyName": "Berkshire Hathaway",
+    "contactEmail": "Carla@bhhsrealestate",
+    "companyPlan": "free"
+  },
+  {
+    "id": "12741551",
+    "companyName": "Nationwide",
+    "contactEmail": "Zhuri@nationwide",
+    "companyPlan": "free"
+  },
+  {
+    "id": "60036069",
+    "companyName": "IBM",
+    "contactEmail": "Arlet@ibm",
+    "companyPlan": "free"
+  },
+  {
+    "id": "62127831",
+    "companyName": "Walgreens Boots Alliance",
+    "contactEmail": "Georgina@walgreens",
+    "companyPlan": "free"
+  },
+  {
+    "id": "17588408",
+    "companyName": "Procter & Gamble",
+    "contactEmail": "Inaya@proctergamble",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "49373615",
+    "companyName": "Verizon",
+    "contactEmail": "Winona@verizon",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "63975204",
+    "companyName": "Exxon Mobil",
+    "contactEmail": "Jream@exxonmobil",
+    "companyPlan": "free"
+  },
+  {
+    "id": "54017149",
+    "companyName": "Anthem",
+    "contactEmail": "Alora@antheminc",
+    "companyPlan": "paid"
+  },
+  {
+    "id": "58689456",
+    "companyName": "HCA Healthcare",
+    "contactEmail": "Cielo@hcahealthcare",
+    "companyPlan": "free"
+  },
+  {
+    "id": "70105570",
+    "companyName": "McKesson",
+    "contactEmail": "Adalee@mckesson",
+    "companyPlan": "free"
+  },
+  {
+    "id": "44087679",
+    "companyName": "Microsoft",
+    "contactEmail": "Arlet@microsoft",
+    "companyPlan": "free"
+  },
+  {
+    "id": "16452672",
+    "companyName": "Express Scripts Holding",
+    "contactEmail": "Amayah@expressscripts",
+    "companyPlan": "free"
+  },
+  {
+    "id": "08876208",
+    "companyName": "Bank of America Corp.",
+    "contactEmail": "Love@bankofamerica",
+    "companyPlan": "free"
+  }
+]

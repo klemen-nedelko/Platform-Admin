@@ -202,8 +202,8 @@ tr:nth-child(even){
     padding-left: 9px;
 }
 .table-company-name{
-    min-width: 150px;
-    max-width: 236px;
+    min-width: 250px;
+    /* max-width: 236px; */
 }
 .no-data{
     display: flex;

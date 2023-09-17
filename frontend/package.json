@@ -1,0 +1,13 @@
+{
+  "name": "frontend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.2"
+  }
+}

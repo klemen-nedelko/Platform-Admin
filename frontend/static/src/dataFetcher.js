@@ -11,7 +11,7 @@ class DataFetcher {
             return this.cachedData
         }
         try {
-            const response = await fetch('/src/data.json');
+            const response = await fetch('http://localhost:8888/data');
             const data = await response.json();
             this.cachedData = data;
             return data;

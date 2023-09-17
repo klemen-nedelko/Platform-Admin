@@ -1,0 +1,76 @@
+Walmart	@walmart
+Exxon Mobil	@exxonmobil
+Berkshire Hathaway	@BHHSRealEstate
+Apple	@apple
+UnitedHealth Group	@UnitedHealthGrp
+McKesson	@McKesson
+CVS Health	@cvspharmacy
+Amazon.com	@amazon
+AT&T	@ATT
+General Motors	@gm
+Ford Motor	@Ford
+AmerisourceBergen	@healthcare_abc
+Chevron	@chevron
+Cardinal Health	@cardinalhealth
+Costco	@costco
+Verizon	@verizon
+Kroger	@kroger
+General Electric	@generalelectric
+Walgreens Boots Alliance	@Walgreens
+JPMorgan Chase	@JPMorgan
+Fannie Mae	@fanniemae
+Alphabet	n/a
+Home Depot	@HomeDepot
+Bank of America Corp.	@bankofamerica
+Express Scripts Holding	@expressscripts
+Wells Fargo	@wellsfargo
+Boeing	@Boeing
+Phillips	@Phillips66Co
+Anthem	@AnthemInc
+Microsoft	@microsoft
+Valero Energy	@ValeroEnergy
+Citigroup	@citi
+Comcast	@comcast
+IBM	@ibm
+Dell Technologies	@dell
+State Farm Insurance Cos.	@statefarm
+Johnson & Johnson	@jnjnews
+Freddie Mac	@freddiemac
+Target	@Target
+Lowe's	@lowes
+Marathon Petroleum	@marathonpetroco
+Procter & Gamble	@proctergamble
+MetLife	@metlife
+UPS	@ups
+PepsiCo	@pepsi
+Intel	@intel
+DowDuPont	@dowchemical
+Archer Daniels Midland	@admupdates
+Aetna	@Aetna
+FedEx	@FedEx
+United Technologies	@UTC
+Prudential Financial	@pfglender
+Albertsons Cos.	@Albertsons
+Sysco	@Sysco
+Disney	@Disney
+Humana	@Humana
+Pfizer	@pfizer
+HP	@hp
+Lockheed Martin	@LockheedMartin
+AIG	@AIGinsurance
+Centene	@centene
+Cisco Systems	@cisco
+HCA Healthcare	@hcahealthcare
+Energy Transfer Equity	@exxonmobil
+Caterpillar	@CaterpillarInc
+Nationwide	@Nationwide
+Morgan Stanley	@MorganStanley
+Liberty Mutual Insurance Group	@libertymutual
+New York Life Insurance	@NewYorkLife
+Goldman Sachs Group	@GoldmanSachs
+American Airlines Group	@AmericanAir
+Best Buy	@BestBuy
+Cigna	@cigna
+Charter Communications	@CharterTMs
+Delta Air Lines	@delta
+Facebook	@Facebook
