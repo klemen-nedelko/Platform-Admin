@@ -2,7 +2,7 @@
 
 class FilterOption {
 
-    constructor(tableRenderer) {
+    constructor() {
         this.filterOption = document.querySelectorAll('.filter-option');
         this.currentFilter = 'all';
         this.initializeFilterOptions();
@@ -28,7 +28,6 @@ class FilterOption {
         const filterChangeEvent = new Event('filterChange', { bubbles: true });
         document.dispatchEvent(filterChangeEvent);
 
-        // this.tableRenderer.renderTable();
     }
 
 }
