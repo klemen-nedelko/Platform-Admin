@@ -7,6 +7,7 @@ import SearchData from "./searchData.js";
 import FilterOption from "./filterOption.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+
     const modal = new Modal("add-new-account");
     const dataFetcher = new DataFetcher();
     const tableRender = new TableRender();
@@ -55,10 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             dataFetcher.addNewDataToCache(newData);
 
-            companyNameInput = '';
-            contactEmailInput = '';
-            companyPlanInput = 'free';
-
+            createForm.reset();
             modal.hideModal();
 
             tableRender.renderTable(dataFetcher.getCachedData());

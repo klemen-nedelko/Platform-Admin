@@ -173,6 +173,9 @@
     display:none;
 }
 /* Table */
+tr:nth-child(even){
+    background-color: var(--color-secondary);
+}
 .table-container{
     width: 100%;
     padding-top: 46px;
