@@ -55,6 +55,7 @@
 }
 .filter-option:hover{
     color: #fff;
+    cursor: pointer;
     background-color: var(--color-white-opacity);
 }
 .active{

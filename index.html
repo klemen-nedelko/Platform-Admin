@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platform Admin</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/theme.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
-<link rel="stylesheet" href="./style/reset.css">
-<link rel="stylesheet" href="./style/theme.css">
-<link rel="stylesheet" href="./style/style.css">
 <body>
     <nav>
         <div class="navbar padding-site">
@@ -29,21 +29,21 @@
     <section class="search padding-site">
         <div class="search-input-seciton">
             <label class="search-icon">
-                    <input type="text" placeholder="Search" class="search-input font-search"/>
+                    <input type="text" placeholder="Search" class="search-input font-search" id="search-input"/>
             </label>
         </div>
-        <button class="btn btn-create font-btn btn-create-new" id="btn-create-new">Create new Account</button>
+        <button class="btn btn-create font-btn btn-create-new" id="add-new-account-btn">Create new Account</button>
     </section>  
     <!-- Open modal to create new -->
-    <div class="modal hidden">
-        <button class="close-modal">&times;</button>
-        <p class="font-primary">Create new Comany</p>
+    <div class="modal hidden" id="add-new-account">
+        <button class="close-modal" id="add-new-account-close">&times;</button>
+        <p class="font-primary">Create new Company</p>
         <form class="create-new-account-form create" id="create">
-            <label class="font-primary">Company Name</label>
+            <label class="font-primary" for="companyName">Company Name</label>
             <input class="input" type="text" placeholder="John" id="companyName" name="companyName" required/>
-            <label  class="font-primary">Owner email</label>
-            <input class="input" type="email" placeholder="Email"  id="companyEmail" name="companyEmail" required/>
-            <label  class="font-primary">Select subscription</label>
+            <label  class="font-primary" for="contactEmail">Contact Email</label>
+            <input class="input" type="email" placeholder="Email"  id="contactEmail" name="contactEmail" required/>
+            <label  class="font-primary" for="companyPlan">Select subscription</label>
             <select class="input" id="companyPlan" name="companyPlan">
                 <option value="free">Free</option>
                 <option value="pay">Paying</option>
@@ -51,7 +51,7 @@
             <button type="submit" class="btn btn-create font-btn">Create new Account</button>
         </form>
     </div>
-    <div class="overlay hidden"></div>
+    <div class="overlay hidden" id="overlay"></div>
     <!-- Table with information -->
     <main class="padding-site">
         <div class="table-container">
@@ -71,6 +71,7 @@
             </table>
         </div>
     </main>
-    <script src="/js/main.js" type="module"></script>
+    <!-- <script src="/js/main.js" type="module"></script> -->
+    <script src="./src/main.js" type="module"></script>
 </body>
 </html>

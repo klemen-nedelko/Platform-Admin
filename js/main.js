@@ -101,7 +101,7 @@ const renderTable = async (data = []) => {
             nameCell.textContent = item.companyName;
 
             const emailCell = document.createElement("td");
-            emailCell.textContent = item.companyEmail;
+            emailCell.textContent = item.contactEmail;
 
             row.appendChild(idCell);
             row.appendChild(nameCell);
@@ -113,13 +113,13 @@ const renderTable = async (data = []) => {
 }
 const searchData = async () => {
     try {
-        const DATA = await fetchData();
-        if (!DATA || !Array.isArray(DATA)) {
+        const data = await cachedData;
+        if (!data || !Array.isArray(data)) {
             throw new Error('Data is not available or is not an array');
         }
 
         const searchQuery = searchInput.value.trim().toLowerCase();
-        const searchedData = DATA.filter((item) => {
+        const searchedData = cachedData.filter((item) => {
             return item.companyName.toLowerCase().includes(searchQuery);
         });
         renderTable(searchedData);
@@ -166,21 +166,21 @@ const createFrom = document.getElementById('create');
 createFrom.addEventListener('submit', (event) => {
     event.preventDefault();
     const companyName = document.getElementById('companyName').value;
-    const companyEmail = document.getElementById('companyEmail').value;
+    const contactEmail = document.getElementById('contactEmail').value;
     const companyPlan = document.getElementById('companyPlan').value;
-    console.log(companyEmail)
+    console.log(contactEmail)
 
     const newData = {
         id: cachedData.length + 1,
         companyName,
-        companyEmail,
+        contactEmail,
         companyPlan
     }
     hideModal();
     addNewDataToCache(newData);
     renderTableWithUpdatedData();
     document.getElementById('companyName').value = '';
-    document.getElementById('companyEmail').value = '';
+    document.getElementById('contactEmail').value = '';
     document.getElementById('companyPlan').value = 'free';
 
 })
