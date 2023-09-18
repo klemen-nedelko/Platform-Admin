@@ -19,7 +19,7 @@ General Electric	@generalelectric
 Walgreens Boots Alliance	@Walgreens
 JPMorgan Chase	@JPMorgan
 Fannie Mae	@fanniemae
-Alphabet	n/a
+Alphabet	@Alphabet
 Home Depot	@HomeDepot
 Bank of America Corp.	@bankofamerica
 Express Scripts Holding	@expressscripts

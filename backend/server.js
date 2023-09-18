@@ -8,24 +8,21 @@ const app = express();
 const cors = require('cors');
 
 
-const dat = [
-    {
-        "id": 12401,
-        "companyName": "ACME Corporation",
-        "contactEmail": "tom.hudges@apple.com",
-        "companyPlan": "paying"
-    },
-    {
-        "id": 12402,
-        "companyName": "intera d.o.o.",
-        "contactEmail": "the.boss@intera.si",
-        "companyPlan": "free"
-    }
-];
-
 app.use(cors({
     origin: 'http://localhost:8080'
 }));
+
+const filterDataBySubscription = (data, subscription) => data.filter(item => item.companyPlan === subscription);
+
+const searchByQuery = (data, query) => {
+    const fuse = new Fuse(data, {
+        keys: ['companyName'],
+        isCaseSensitive: true,
+        threshold: 1,
+    });
+    const fuseQuery = query || '';
+    return fuse.search(fuseQuery);
+}
 
 // /search?query=foo&subscription=free
 // When no query -> return all data that fits `subscription`
@@ -43,59 +40,32 @@ app.get('/search', async (req, res) => {
 
     try {
         // Read the data from the JSON file asynchronously
-
         const filePath = path.join(__dirname, 'data.json');
-
         const data = await fs.readFile(filePath, 'utf8');
-
         const jsonData = JSON.parse(data);
         jsonData.forEach(item => {
-            item.companyName = item.companyName.toLowerCase();
+            item.companyName = item.companyName;
         });
 
-        if (!query && !subscription) {
-            // Return all data from the file
-            console.log("this is now clear query", query);
-            console.log(jsonData);
-            res.json(jsonData);
-            return;
+        // Filter the data based on query and/or subscription
+        let filteredData = jsonData;
+
+        if (query && subscription) {
+            filteredData = searchByQuery(filterDataBySubscription(filteredData, subscription), query);
+        } else if (subscription) {
+            filteredData = filterDataBySubscription(filteredData, subscription);
+        } else if (query) {
+            filteredData = searchByQuery(jsonData, query);
         }
-        // 3. Now search!
-        const fuse = new Fuse(jsonData, {
-            keys: ['companyName'],
-            isCaseSensitive: true
-        });
 
-        // Now search based on the query
-        const fuseQuery = query || '';
-        const result = fuse.search(fuseQuery);
+        res.json(filteredData);
 
-        console.log(query);
-        console.log(subscription);
-
-        if (req.originalUrl === '/search?') {
-            try {
-
-                const filePath = path.join(__dirname, 'data.json');
-                // Read the data from the JSON file asynchronously
-                const data = await fs.readFile(filePath, 'utf8');
-
-                const jsonData = JSON.parse(data);
-
-                // Return all data from the file as a JSON response
-                res.json(jsonData);
-            } catch (error) {
-                console.error(error);
-                res.status(500).json({ error: 'Internal Server Error' });
-            }
-            return;
-        }
-        res.json(result);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
 
 app.get('/data', async (req, res) => {
     try {
@@ -116,5 +86,5 @@ const generateData = new GeneratedData(30);
 
 
 app.listen(8888, () => {
-    console.log(`Running on port 8888`)
+    console.log(`Running on port: 8888 `)
 });

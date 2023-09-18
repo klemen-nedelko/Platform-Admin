@@ -1,0 +1,182 @@
+[
+  {
+    "id": "25420019",
+    "companyName": "New York Life Insurance",
+    "contactEmail": "Neriah@newyorklife",
+    "companyPlan": "free"
+  },
+  {
+    "id": "52023189",
+    "companyName": "Valero Energy",
+    "contactEmail": "Inaya@valeroenergy",
+    "companyPlan": "free"
+  },
+  {
+    "id": "25250418",
+    "companyName": "DowDuPont",
+    "contactEmail": "Adalee@dowchemical",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "40022674",
+    "companyName": "Cisco Systems",
+    "contactEmail": "Wrenley@cisco",
+    "companyPlan": "free"
+  },
+  {
+    "id": "44017570",
+    "companyName": "Intel",
+    "contactEmail": "Winona@intel",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "82292737",
+    "companyName": "McKesson",
+    "contactEmail": "Isabela@mckesson",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "26595476",
+    "companyName": "Anthem",
+    "contactEmail": "Isabela@antheminc",
+    "companyPlan": "free"
+  },
+  {
+    "id": "26707510",
+    "companyName": "Caterpillar",
+    "contactEmail": "Amiri@caterpillarinc",
+    "companyPlan": "free"
+  },
+  {
+    "id": "85010644",
+    "companyName": "Alphabet",
+    "contactEmail": "Arlet@alphabet",
+    "companyPlan": "free"
+  },
+  {
+    "id": "41655716",
+    "companyName": "Cigna",
+    "contactEmail": "Carla@cigna",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "85888750",
+    "companyName": "MetLife",
+    "contactEmail": "Isabela@metlife",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "50307925",
+    "companyName": "Albertsons Cos.",
+    "contactEmail": "Adalee@albertsons",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "43833862",
+    "companyName": "State Farm Insurance Cos.",
+    "contactEmail": "Wrenley@statefarm",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "66148086",
+    "companyName": "Disney",
+    "contactEmail": "Isabela@disney",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "48612467",
+    "companyName": "Facebook",
+    "contactEmail": "Wrenley@facebook",
+    "companyPlan": "free"
+  },
+  {
+    "id": "13984266",
+    "companyName": "Lowe's",
+    "contactEmail": "Scottie@lowes",
+    "companyPlan": "free"
+  },
+  {
+    "id": "20593833",
+    "companyName": "Goldman Sachs Group",
+    "contactEmail": "Alora@goldmansachs",
+    "companyPlan": "free"
+  },
+  {
+    "id": "89875071",
+    "companyName": "CVS Health",
+    "contactEmail": "Adalee@cvspharmacy",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "19938653",
+    "companyName": "Humana",
+    "contactEmail": "Wrenley@humana",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "45257134",
+    "companyName": "Energy Transfer Equity",
+    "contactEmail": "Sol@exxonmobil",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "35530356",
+    "companyName": "Marathon Petroleum",
+    "contactEmail": "Georgina@marathonpetroco",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "00971344",
+    "companyName": "IBM",
+    "contactEmail": "Scottie@ibm",
+    "companyPlan": "free"
+  },
+  {
+    "id": "71922426",
+    "companyName": "Kroger",
+    "contactEmail": "Adalee@kroger",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "00058823",
+    "companyName": "Apple",
+    "contactEmail": "Arleth@apple",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "81138943",
+    "companyName": "General Electric",
+    "contactEmail": "Isabela@generalelectric",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "07174249",
+    "companyName": "Morgan Stanley",
+    "contactEmail": "Georgina@morganstanley",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "67058406",
+    "companyName": "Amazon.com",
+    "contactEmail": "Isabela@amazon",
+    "companyPlan": "free"
+  },
+  {
+    "id": "55242006",
+    "companyName": "Exxon Mobil",
+    "contactEmail": "Sol@exxonmobil",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "05809105",
+    "companyName": "Wells Fargo",
+    "contactEmail": "Jream@wellsfargo",
+    "companyPlan": "paying"
+  },
+  {
+    "id": "14776020",
+    "companyName": "Best Buy",
+    "contactEmail": "Adalee@bestbuy",
+    "companyPlan": "paying"
+  }
+]

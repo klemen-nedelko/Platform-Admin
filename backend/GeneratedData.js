@@ -109,8 +109,21 @@ class GeneratedData {
         return generatedData;
     }
 
+    async checkAndDeleteExistingDataFile() {
+        const filePath = path.join(__dirname, 'data.json');
+        try {
+            await fs.access(filePath);
+            await fs.unlink(filePath);
+            console.log('Existing data file has been rewrited.✅');
+        } catch (error) {
+            // File does not exist or couldn't be deleted
+            console.log('No existing data file found or unable to delete it.');
+        }
+    }
+
     async generateAndWriteData(numEntries) {
         try {
+            await this.checkAndDeleteExistingDataFile();
             const generatedData = await this.generateRandomData();
 
             const existingDataJson = await this.readExistingDataJson();

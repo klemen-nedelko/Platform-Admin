@@ -24,15 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
         searchData.handleSearch();
     });
     document.addEventListener('filterChange', () => {
-        const currentFilter = filterOption.currentFilter;
-
-        dataFetcher.fetchData().then((data) => {
-            const filteredData = data.filter(item => {
-                return currentFilter === 'all' || item.companyPlan === currentFilter;
-            });
-
-            tableRender.renderTable(filteredData, config, containerId);
-        });
+        searchData.handleSearch(); // Trigger a search with the current filter and query
     });
 
     const createForm = document.getElementById('create');

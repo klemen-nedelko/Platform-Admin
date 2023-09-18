@@ -41,7 +41,6 @@ class TableRender {
 
         let tbody = document.createElement('tbody');
         tbody.classList.add('table-body-style')
-        console.log(data);
 
         if (data.length === 0) {
             let noDataRow = document.createElement('tr');

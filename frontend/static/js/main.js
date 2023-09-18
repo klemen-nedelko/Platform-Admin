@@ -120,7 +120,7 @@ const searchData = async () => {
 
         const searchQuery = searchInput.value.trim().toLowerCase();
         const searchedData = cachedData.filter((item) => {
-            return item.companyName.toLowerCase().includes(searchQuery);
+            return item.companyName.includes(searchQuery);
         });
         renderTable(searchedData);
     } catch (error) {
