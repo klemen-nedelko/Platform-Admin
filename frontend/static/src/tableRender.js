@@ -13,46 +13,78 @@ class TableRender {
         });
     }
 
-    renderTable(data = []) {
-        this.tableBody.innerHTML = '';
-        const filteredData = this.filterData(data, this.currentFilter);
+    renderTable(data, config, containerId) {
+        let columns = [];
+        let table = document.createElement('table');
+        table.id = 'table';
+        table.classList.add('table')
+
+        let thead = document.createElement('thead');
+        thead.classList.add('table-head');
+        let trHeader = document.createElement('tr');
+        trHeader.classList.add('font-table');
+
+        // NOTE: We assume that all `data` objects have the same keys!
+        for (let keyName in data[0]) {
+            if (config[keyName]) {
+                columns.push({ colKey: keyName, colName: config[keyName] });
+
+                let th = document.createElement('th');
+                th.classList.add(`table-${keyName.toLowerCase()}`);
+                th.innerHTML = config[keyName];
+                trHeader.appendChild(th);
+            }
+        }
+        thead.appendChild(trHeader);
+        table.appendChild(thead);
+
+        let tbody = document.createElement('tbody');
+        tbody.classList.add('table-body-style')
 
         if (data.length === 0) {
-            const noDataRow = document.createElement("tr");
-            noDataRow.id = "noData";
+            let noDataRow = document.createElement('tr');
+            noDataRow.id = 'noDataRow';
 
-            const noDataCell = document.createElement("td");
-            noDataCell.colSpan = 5;
-            noDataCell.className = "no-data font-no-data";
-            noDataCell.textContent = "No data...";
+            let noDataCell = document.createElement('td');
+            noDataCell.colSpan = columns.length;
+            noDataCell.classList.add('no-data', 'font-no-data');
+            noDataCell.innerHTML = 'No data...';
 
             noDataRow.appendChild(noDataCell);
-            this.tableBody.appendChild(noDataRow);
+
+            tbody.appendChild(noDataRow);
         } else {
-            filteredData.forEach((item) => {
-                const row = document.createElement("tr");
-                row.classList.add('table-body-style')
+            for (let item of data) {
+                let tr = document.createElement('tr');
 
-                const idCell = document.createElement("td");
-                idCell.classList.add('table-id')
-                idCell.textContent = item.id;
+                tr.classList.add('table-body-style');
+                tr.classList.add('font-table');
 
-                const nameCell = document.createElement("td");
-                nameCell.classList.add('font-primary')
-                nameCell.classList.add('table-company-name')
-                nameCell.textContent = item.companyName;
+                for (let col of columns) {
+                    let td = document.createElement('td');
 
-                const emailCell = document.createElement("td");
-                emailCell.textContent = item.contactEmail;
+                    td.innerHTML = item[col.colKey];
+                    tr.appendChild(td);
 
-                row.appendChild(idCell);
-                row.appendChild(nameCell);
-                row.appendChild(emailCell);
+                    if (col.colKey === 'id') {
+                        td.classList.add('table-id');
 
-                this.tableBody.appendChild(row);
-            });
+                    } else if (col.colKey === 'companyName') {
+
+                        td.classList.add('table-company-name');
+                        td.classList.add('font-primary')
+                    }
+                }
+                tbody.appendChild(tr);
+            }
         }
+
+        table.appendChild(tbody);
+        let tableContainer = document.getElementById(containerId);
+        tableContainer.innerHTML = ''; //Clear table
+        tableContainer.appendChild(table);
     }
+
 }
 
 export default TableRender;

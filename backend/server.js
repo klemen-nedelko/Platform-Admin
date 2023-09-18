@@ -7,6 +7,7 @@ const path = require('path');
 const app = express();
 const cors = require('cors');
 
+
 const dat = [
     {
         "id": 12401,
@@ -40,8 +41,12 @@ app.use('/search', function (req, res) {
     const query = req.query.query;
     const subscription = req.query.subscription;
 
+    const filePath = path.join(__dirname, 'data.json');
+
+    const data = fs.readFile(filePath, 'utf8');
+
     //
-    const fuse = new Fuse(dat, {
+    const fuse = new Fuse(data, {
         keys: ['companyName']
     })
 
@@ -57,6 +62,7 @@ app.use('/search', function (req, res) {
 
 app.get('/data', async (req, res) => {
     try {
+
         const filePath = path.join(__dirname, 'data.json');
 
         const data = await fs.readFile(filePath, 'utf8');
@@ -69,9 +75,8 @@ app.get('/data', async (req, res) => {
     }
 })
 
+const generateData = new GeneratedData(30);
 
-
-const generatedData = new GeneratedData(30);
 
 app.listen(8888, () => {
     console.log(`Running on port 8888`)

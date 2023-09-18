@@ -34,7 +34,7 @@ class GeneratedData {
     }
 
     getRandomPlan() {
-        const plans = ['free', 'paid'];
+        const plans = ['free', 'paying'];
         const randomIndex = Math.floor(Math.random() * plans.length);
         return plans[randomIndex];
     }

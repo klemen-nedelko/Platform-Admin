@@ -5,6 +5,7 @@ import DataFetcher from "./dataFetcher.js";
 import TableRender from "./tableRender.js";
 import SearchData from "./searchData.js";
 import FilterOption from "./filterOption.js";
+import { config } from "./config.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -13,13 +14,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const tableRender = new TableRender();
     const searchData = new SearchData(dataFetcher, tableRender);
     const filterOption = new FilterOption();
+    const containerId = 'table-container'
 
     dataFetcher.fetchData().then((data) => {
-        tableRender.renderTable(data);
+        tableRender.renderTable(data, config, containerId);
     })
 
     searchData.searchInput.addEventListener('input', () => {
-        searchData.searchData();
+        searchData.searchData(config, containerId);
     });
 
     document.addEventListener('filterChange', () => {
@@ -30,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return currentFilter === 'all' || item.companyPlan === currentFilter;
             });
 
-            tableRender.renderTable(filteredData);
+            tableRender.renderTable(filteredData, config, containerId);
         });
     });
 
@@ -59,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
             createForm.reset();
             modal.hideModal();
 
-            tableRender.renderTable(dataFetcher.getCachedData());
+            tableRender.renderTable(dataFetcher.getCachedData(), config, containerId);
 
         } catch (error) {
             console.log(error);

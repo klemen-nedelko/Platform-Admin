@@ -3,11 +3,13 @@ import debounce from "./debounce.js";
 
 class SearchData {
 
-    constructor(dataFetcher, tableRenderer) {
+    constructor(dataFetcher, tableRenderer, config, containerId) {
         this.searchInput = document.getElementById('search-input');
         this.debounceSearchData = debounce(this.searchData.bind(this), 300);
         this.dataFetcher = dataFetcher;
         this.tableRenderer = tableRenderer;
+        this.config = config;
+        this.containerId = containerId;
         this.initializeSearchInput();
     }
     initializeSearchInput() {
@@ -26,7 +28,7 @@ class SearchData {
             const searchQuery = this.searchInput.value.trim().toLowerCase();
 
             if (!searchQuery) {
-                this.tableRenderer.renderTable(data);
+                this.tableRenderer.renderTable(data, config, containerId);
                 return;
             }
 

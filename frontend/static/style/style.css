@@ -205,6 +205,9 @@ tr:nth-child(even){
     min-width: 250px;
     /* max-width: 236px; */
 }
+.table-companyname{
+    min-width: 250px;
+}
 .no-data{
     display: flex;
     align-items: center;
