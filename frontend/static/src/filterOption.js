@@ -24,6 +24,7 @@ class FilterOption {
         event.target.classList.add('font-active');
         event.target.classList.add('active');
         this.currentFilter = event.target.textContent.trim().toLowerCase();
+        window.currentFilter = this.currentFilter ?? 'all';
 
         const filterChangeEvent = new Event('filterChange', { bubbles: true });
         document.dispatchEvent(filterChangeEvent);

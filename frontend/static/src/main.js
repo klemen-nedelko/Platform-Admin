@@ -10,20 +10,19 @@ import { config } from "./config.js";
 document.addEventListener("DOMContentLoaded", () => {
 
     const modal = new Modal("add-new-account");
+    const containerId = 'table-container'
     const dataFetcher = new DataFetcher();
     const tableRender = new TableRender();
-    const searchData = new SearchData(dataFetcher, tableRender);
+    const searchData = new SearchData(tableRender, config, containerId);
     const filterOption = new FilterOption();
-    const containerId = 'table-container'
 
     dataFetcher.fetchData().then((data) => {
         tableRender.renderTable(data, config, containerId);
     })
 
     searchData.searchInput.addEventListener('input', () => {
-        searchData.searchData(config, containerId);
+        searchData.handleSearch();
     });
-
     document.addEventListener('filterChange', () => {
         const currentFilter = filterOption.currentFilter;
 

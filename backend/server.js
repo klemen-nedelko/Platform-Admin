@@ -37,27 +37,64 @@ app.use(cors({
 // /search?query=foo
 // /search?query=foo&subscription=free
 // /search?query=foo&subscription=paid
-app.use('/search', function (req, res) {
+app.get('/search', async (req, res) => {
     const query = req.query.query;
     const subscription = req.query.subscription;
 
-    const filePath = path.join(__dirname, 'data.json');
+    try {
+        // Read the data from the JSON file asynchronously
 
-    const data = fs.readFile(filePath, 'utf8');
+        const filePath = path.join(__dirname, 'data.json');
 
-    //
-    const fuse = new Fuse(data, {
-        keys: ['companyName']
-    })
+        const data = await fs.readFile(filePath, 'utf8');
 
-    // 3. Now search!
-    const fuseQuery = query ?? '';
-    const result = fuse.search(fuseQuery);
+        const jsonData = JSON.parse(data);
+        jsonData.forEach(item => {
+            item.companyName = item.companyName.toLowerCase();
+        });
 
-    console.log(query);
-    console.log(subscription);
+        if (!query && !subscription) {
+            // Return all data from the file
+            console.log("this is now clear query", query);
+            console.log(jsonData);
+            res.json(jsonData);
+            return;
+        }
+        // 3. Now search!
+        const fuse = new Fuse(jsonData, {
+            keys: ['companyName'],
+            isCaseSensitive: true
+        });
 
-    res.json(result);
+        // Now search based on the query
+        const fuseQuery = query || '';
+        const result = fuse.search(fuseQuery);
+
+        console.log(query);
+        console.log(subscription);
+
+        if (req.originalUrl === '/search?') {
+            try {
+
+                const filePath = path.join(__dirname, 'data.json');
+                // Read the data from the JSON file asynchronously
+                const data = await fs.readFile(filePath, 'utf8');
+
+                const jsonData = JSON.parse(data);
+
+                // Return all data from the file as a JSON response
+                res.json(jsonData);
+            } catch (error) {
+                console.error(error);
+                res.status(500).json({ error: 'Internal Server Error' });
+            }
+            return;
+        }
+        res.json(result);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 });
 
 app.get('/data', async (req, res) => {

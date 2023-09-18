@@ -1,48 +1,56 @@
 'use strict'
-import debounce from "./debounce.js";
 
 class SearchData {
 
-    constructor(dataFetcher, tableRenderer, config, containerId) {
+    constructor(tableRender, config, containerId) {
         this.searchInput = document.getElementById('search-input');
-        this.debounceSearchData = debounce(this.searchData.bind(this), 300);
-        this.dataFetcher = dataFetcher;
-        this.tableRenderer = tableRenderer;
+        this.tableRender = tableRender;
         this.config = config;
         this.containerId = containerId;
-        this.initializeSearchInput();
-    }
-    initializeSearchInput() {
-        this.searchInput.addEventListener('input', this.debounceSearchData)
+        this.searchInput.addEventListener('input', this.handleSearch());
     }
 
-    async searchData() {
+    async handleSearch() {
+        const query = this.searchInput.value.trim().toLowerCase();
+        const currentFilter = window.currentFilter;
+
         try {
-            const data = await this.dataFetcher.fetchData();
+            const queryParams = new URLSearchParams();
 
-            if (!data || !Array.isArray(data)) {
-                throw new Error('Data is not available or is not an array');
+            // Only add 'query' parameter if it's not empty
+            if (query) {
+                queryParams.append('query', query);
             }
 
+            // Only add 'subscription' parameter if currentFilter is not 'all'
+            // if (currentFilter !== 'all') {
+            //     queryParams.append('subscription', currentFilter);
+            // }
 
-            const searchQuery = this.searchInput.value.trim().toLowerCase();
+            const response = await fetch('http://localhost:8888/search?' + queryParams.toString());
 
-            if (!searchQuery) {
-                this.tableRenderer.renderTable(data, config, containerId);
-                return;
+            if (!response.ok) {
+                throw new Error('Network response was not ok: ' + response.status);
             }
 
-            !searchQuery && renderTable(data);
+            const searchData = await response.json();
+            let data;
 
-            const filteredData = searchQuery ? data.filter(item => item.companyName.toLowerCase().includes(searchQuery)) : data;
+            if (searchData.every(itemData => itemData && itemData.item && itemData.item.id)) {
+                // If all items have item.id, map item objects
+                data = searchData.map(itemData => itemData.item);
+            } else {
+                // If any item lacks item.id, use the entire searchData
+                data = searchData;
+            }
 
-            this.tableRenderer.renderTable(filteredData)
+            this.tableRender.renderTable(data, this.config, this.containerId);
         } catch (error) {
             console.error(error);
-            this.tableRenderer.renderTable([]);
+            // Handle the error gracefully, e.g., display an error message to the user
+            this.tableRender.renderTable([], this.config, this.containerId);
         }
     }
-
 }
 
 export default SearchData;

@@ -14,6 +14,7 @@ class TableRender {
     }
 
     renderTable(data, config, containerId) {
+
         let columns = [];
         let table = document.createElement('table');
         table.id = 'table';
@@ -40,6 +41,7 @@ class TableRender {
 
         let tbody = document.createElement('tbody');
         tbody.classList.add('table-body-style')
+        console.log(data);
 
         if (data.length === 0) {
             let noDataRow = document.createElement('tr');
@@ -77,6 +79,7 @@ class TableRender {
                 }
                 tbody.appendChild(tr);
             }
+
         }
 
         table.appendChild(tbody);
