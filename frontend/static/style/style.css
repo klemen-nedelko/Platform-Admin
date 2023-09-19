@@ -54,7 +54,7 @@
     border-radius: 8px;
 }
 .filter-option:hover{
-    color: #fff;
+    color:  var(--color-white);
     cursor: pointer;
     background-color: var(--color-white-opacity);
 }
@@ -67,7 +67,7 @@
     padding: 8px;
     min-height: 32px;
     border-radius: 8px;
-    color: #fff;
+    color:  var(--color-white);
     background-color: var(--color-white-opacity);
 }
 /* Search */
@@ -203,7 +203,6 @@ tr:nth-child(even){
 }
 .table-company-name{
     min-width: 250px;
-    /* max-width: 236px; */
 }
 .table-companyname{
     min-width: 250px;
