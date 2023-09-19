@@ -1,19 +1,18 @@
 'use strict'
-
 class DataFetcher {
-
     constructor() {
-        this.cachedData = null;
+        this.cache = new Map();
     }
 
     async fetchData(forceRefresh = false) {
-        if (this.cachedData && !forceRefresh) {
-            return this.cachedData
+        if (!forceRefresh && this.cache.has('data')) {
+            return this.cache.get('data');
         }
+
         try {
             const response = await fetch('http://localhost:8888/data');
             const data = await response.json();
-            this.cachedData = data;
+            this.cache.set('data', data);
             return data;
         } catch (error) {
             console.error(error);
@@ -22,16 +21,16 @@ class DataFetcher {
     }
 
     addNewDataToCache(newData) {
-        if (!this.cachedData) {
-            this.cachedData = [];
+        if (!this.cache.has('data')) {
+            this.cache.set('data', []);
         }
-        this.cachedData.push(newData);
+        const cachedData = this.cache.get('data');
+        cachedData.push(newData);
     }
 
     getCachedData() {
-        return this.cachedData;
+        return this.cache.get('data') || [];
     }
-
 }
 
 export default DataFetcher;

@@ -1,13 +1,44 @@
 'use strict'
 
 class SearchData {
-
     constructor(tableRender, config, containerId) {
         this.searchInput = document.getElementById('search-input');
         this.tableRender = tableRender;
         this.config = config;
         this.containerId = containerId;
-        this.searchInput.addEventListener('input', this.handleSearch());
+        this.debounceTimer = null;
+
+        this.searchInput.addEventListener('input', (e) => {
+            clearTimeout(this.debounceTimer);
+            this.debounceTimer = setTimeout(() => {
+                try {
+                    this.handleSearch();
+                } catch (error) {
+                    console.error(error);
+                }
+            }, 300);
+        });
+    }
+
+    async fetchData(query, currentFilter) {
+        const queryParams = new URLSearchParams();
+        if (query) {
+            queryParams.append('query', query);
+        }
+        if (currentFilter !== 'all' && currentFilter !== undefined) {
+            queryParams.append('subscription', currentFilter);
+        }
+
+        const url = 'http://localhost:8888/search?' + queryParams.toString();
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error('Network or server error');
+        }
+
+        const searchData = await response.json();
+        return searchData;
     }
 
     async handleSearch() {
@@ -15,28 +46,17 @@ class SearchData {
         const currentFilter = window.currentFilter;
 
         try {
+            const searchData = await this.fetchData(query, currentFilter);
 
-            const queryParams = new URLSearchParams();
-            if (query) {
-                queryParams.append('query', query);
-            }
-            if (currentFilter !== 'all' && currentFilter !== undefined) {
-                queryParams.append('subscription', currentFilter);
-            }
-            const response = await fetch('http://localhost:8888/search?' + queryParams.toString());
-
-            const searchData = await response.json();
             let data;
 
             if (searchData.every(itemData => itemData && itemData.item && itemData.item.id)) {
-                // If all items have item.id, map item objects
                 data = searchData.map(itemData => itemData.item);
             } else {
-                // If any item lacks item.id, use the entire searchData
                 data = searchData;
             }
-            this.tableRender.renderTable(data, this.config, this.containerId);
 
+            this.tableRender.renderTable(data, this.config, this.containerId);
         } catch (error) {
             console.error(error);
             this.tableRender.renderTable([], this.config, this.containerId);
