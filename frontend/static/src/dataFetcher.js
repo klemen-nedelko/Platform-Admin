@@ -20,12 +20,12 @@ class DataFetcher {
         }
     }
 
-    addNewDataToCache(newData) {
+    addNewDataToCache = (newData) => {
         if (!this.cache.has('data')) {
             this.cache.set('data', []);
         }
         const cachedData = this.cache.get('data');
-        cachedData.push(newData);
+        this.cache.set('data', [...cachedData, newData]);
     }
 
     getCachedData() {
