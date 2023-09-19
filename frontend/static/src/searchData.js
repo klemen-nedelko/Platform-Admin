@@ -6,18 +6,6 @@ class SearchData {
         this.tableRender = tableRender;
         this.config = config;
         this.containerId = containerId;
-        this.debounceTimer = null;
-
-        this.searchInput.addEventListener('input', (e) => {
-            clearTimeout(this.debounceTimer);
-            this.debounceTimer = setTimeout(() => {
-                try {
-                    this.handleSearch();
-                } catch (error) {
-                    console.error(error);
-                }
-            }, 300);
-        });
     }
 
     async fetchData(query, currentFilter) {

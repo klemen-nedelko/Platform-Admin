@@ -7,6 +7,19 @@ import SearchData from "./searchData.js";
 import FilterOption from "./filterOption.js";
 import { config } from "./config.js";
 
+
+//using for optimizing client site of search
+const debounce = (func, delay) => {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+};
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
     const modal = new Modal("add-new-account");
@@ -16,13 +29,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const searchData = new SearchData(tableRender, config, containerId);
     const filterOption = new FilterOption();
 
+
     dataFetcher.fetchData().then((data) => {
         tableRender.renderTable(data, config, containerId);
     })
 
-    searchData.searchInput.addEventListener('input', () => {
+    searchData.searchInput.addEventListener('input', debounce(() => {
         searchData.handleSearch();
-    });
+    }, 300));
+
     document.addEventListener('filterChange', () => {
         searchData.handleSearch(); // Trigger a search with the current filter and query
     });
