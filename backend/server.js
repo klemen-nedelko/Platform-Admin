@@ -43,9 +43,6 @@ app.get('/search', async (req, res) => {
         const filePath = path.join(__dirname, 'data.json');
         const data = await fs.readFile(filePath, 'utf8');
         const jsonData = JSON.parse(data);
-        jsonData.forEach(item => {
-            item.companyName = item.companyName;
-        });
 
         // Filter the data based on query and/or subscription
         let filteredData = jsonData;
@@ -66,21 +63,6 @@ app.get('/search', async (req, res) => {
     }
 });
 
-
-app.get('/data', async (req, res) => {
-    try {
-
-        const filePath = path.join(__dirname, 'data.json');
-
-        const data = await fs.readFile(filePath, 'utf8');
-        const jsonData = JSON.parse(data);
-        res.json(jsonData);
-
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ error: 'Internale server error' });
-    }
-})
 
 const generateData = new GeneratedData(30);
 

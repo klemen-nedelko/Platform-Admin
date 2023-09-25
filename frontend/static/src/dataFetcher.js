@@ -1,6 +1,7 @@
 'use strict'
 class DataFetcher {
-    constructor() {
+    constructor(url) {
+        this.url = url
         this.cache = new Map();
     }
 
@@ -10,7 +11,7 @@ class DataFetcher {
         }
 
         try {
-            const response = await fetch('http://localhost:8888/data');
+            const response = await fetch(this.url);
             const data = await response.json();
             this.cache.set('data', data);
             return data;

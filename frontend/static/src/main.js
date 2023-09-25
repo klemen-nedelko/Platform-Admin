@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const modal = new Modal("add-new-account");
     const containerId = 'table-container'
-    const dataFetcher = new DataFetcher('http://localhost:8888/data');
+    const dataFetcher = new DataFetcher('http://localhost:8888/search');
     const tableRender = new TableRender();
     const searchData = new SearchData(tableRender, config, containerId);
     const filterOption = new FilterOption();
